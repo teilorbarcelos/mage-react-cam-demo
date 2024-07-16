@@ -1,0 +1,57 @@
+import { MageReactCam, TReactCamRef } from "mage-react-cam";
+import { useRef, useState } from "react";
+import "./App.css";
+
+const App = () => {
+  const [currentImage, setCurrentImage] = useState<string>();
+  const videoRef = useRef<TReactCamRef>(null);
+
+  const handlerSnapshot = () => {
+    const snapShot = videoRef?.current?.snapshot;
+    if (snapShot) return snapShot();
+  };
+
+  const handleZoomIn = () => {
+    const zoomIn = videoRef?.current?.zoomIn;
+    if (zoomIn) zoomIn();
+  };
+
+  const handleZoomOut = () => {
+    const zoomOut = videoRef?.current?.zoomOut;
+    if (zoomOut) zoomOut();
+  };
+
+  const capture = () => {
+    const imageSrc = handlerSnapshot();
+    if (imageSrc) {
+      setCurrentImage(imageSrc);
+    }
+  };
+
+  return (
+    <div className="main-container">
+      <MageReactCam
+        ref={videoRef}
+        onUserMediaError={(error) => console.log(error)}
+        videoConstraints={undefined}
+        width={500}
+        height={500}
+        facingMode="environment"
+        autoPlay
+        playsInline
+      />
+      <button onClick={capture}>Take Snapshot</button>
+      <button onClick={handleZoomIn}>Zoom In</button>
+      <button onClick={handleZoomOut}>Zoom Out</button>
+      {currentImage && (
+        <img
+          src={currentImage}
+          alt="current captured image"
+          style={{ width: "100%" }}
+        />
+      )}
+    </div>
+  );
+};
+
+export default App;
