@@ -4,5 +4,5 @@ import { defineConfig } from "vite";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "MAGE_REACT_CAM_DEMO",
+  base: "mage-react-cam-demo",
 });
