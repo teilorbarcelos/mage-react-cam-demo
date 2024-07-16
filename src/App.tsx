@@ -37,6 +37,7 @@ const App = () => {
 
   return (
     <div className="main-container">
+      <h1>Mage React Cam</h1>
       <MageReactCam
         ref={videoRef}
         onUserMediaError={(error) => console.log(error)}
@@ -58,6 +59,10 @@ const App = () => {
           style={{ width: "100%" }}
         />
       )}
+
+      <a target="_blank" href="https://www.npmjs.com/package/mage-react-cam">
+        HOW TO USE IT
+      </a>
     </div>
   );
 };
