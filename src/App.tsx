@@ -1,6 +1,8 @@
-import { MageReactCam, TReactCamRef } from "mage-react-cam";
 import { useRef, useState } from "react";
 import "./App.css";
+import MageReactCam, {
+  TReactCamRef,
+} from "./components/MageReactCam/MageReactCam";
 
 const App = () => {
   const [currentImage, setCurrentImage] = useState<string>();
@@ -19,6 +21,11 @@ const App = () => {
   const handleZoomOut = () => {
     const zoomOut = videoRef?.current?.zoomOut;
     if (zoomOut) zoomOut();
+  };
+
+  const handleSwitchFacingMode = () => {
+    const switchFacingMode = videoRef?.current?.switchFacingMode;
+    if (switchFacingMode) switchFacingMode();
   };
 
   const capture = () => {
@@ -43,6 +50,7 @@ const App = () => {
       <button onClick={capture}>Take Snapshot</button>
       <button onClick={handleZoomIn}>Zoom In</button>
       <button onClick={handleZoomOut}>Zoom Out</button>
+      <button onClick={handleSwitchFacingMode}>Switch Facing Mode</button>
       {currentImage && (
         <img
           src={currentImage}
