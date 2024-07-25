@@ -30,6 +30,12 @@ const App = () => {
     if (switchFacingMode) switchFacingMode();
   };
 
+  const handleGetMaxZoomLevel = () => () =>
+    setMaxZoom(videoRef?.current?.getMaxZoomLevel || 1);
+
+  const handleGetCurrentZoomLevel = () =>
+    setCurrentZoomLevel(videoRef?.current?.getCurrentZoomLevel || 1);
+
   const capture = () => {
     const imageSrc = handlerSnapshot();
     if (imageSrc) {
@@ -50,16 +56,10 @@ const App = () => {
         autoPlay
         playsInline
       />
-      <button
-        onClick={() => setMaxZoom(videoRef?.current?.getMaxZoomLevel || 1)}
-      >
+      <button onClick={handleGetMaxZoomLevel}>
         {maxZoom ? `Max zoom level: ${maxZoom}` : "Get max zoom level"}
       </button>
-      <button
-        onClick={() =>
-          setCurrentZoomLevel(videoRef?.current?.getCurrentZoomLevel || 1)
-        }
-      >
+      <button onClick={handleGetCurrentZoomLevel}>
         {currentZoomLevel
           ? `Current zoom level: ${currentZoomLevel}`
           : "Get current zoom level"}
