@@ -5,6 +5,8 @@ import MageReactCam, {
 } from "./components/MageReactCam/MageReactCam";
 
 const App = () => {
+  const [maxZoom, setMaxZoom] = useState<number>();
+  const [currentZoomLevel, setCurrentZoomLevel] = useState<number>();
   const [currentImage, setCurrentImage] = useState<string>();
   const videoRef = useRef<TReactCamRef>(null);
 
@@ -48,6 +50,20 @@ const App = () => {
         autoPlay
         playsInline
       />
+      <button
+        onClick={() => setMaxZoom(videoRef?.current?.getMaxZoomLevel || 1)}
+      >
+        {maxZoom ? `Max zoom level: ${maxZoom}` : "Get max zoom level"}
+      </button>
+      <button
+        onClick={() =>
+          setCurrentZoomLevel(videoRef?.current?.getCurrentZoomLevel || 1)
+        }
+      >
+        {currentZoomLevel
+          ? `Current zoom level: ${currentZoomLevel}`
+          : "Get current zoom level"}
+      </button>
       <button onClick={capture}>Take Snapshot</button>
       <button onClick={handleZoomIn}>Zoom In</button>
       <button onClick={handleZoomOut}>Zoom Out</button>
