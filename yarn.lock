@@ -1404,10 +1404,10 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
-mage-react-cam@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/mage-react-cam/-/mage-react-cam-1.0.12.tgz#86fc18a7e85ae205feb49e5ce6787b7c907d0110"
-  integrity sha512-dHRaRWhSk5RVgwo7owRvWlNAe6iJCpctS0g+IzlHECyugiUEuId9Uu8u8S2PdU+Ani4PSzsk3mo1IK/9YjRJCA==
+mage-react-cam@^1.0.19:
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/mage-react-cam/-/mage-react-cam-1.0.19.tgz#078fc509bf8468bb6fc351b7a257030a6366d197"
+  integrity sha512-VC907NUGQZrDAzl8Qj/NHQHkjP24zhfRpkdpvpE2bbR1kiE4RbQ2u3cDwqPQ/SqWFA2C6cVfnzc9hZu3jqfPZw==
 
 make-dir@^3.0.2:
   version "3.1.0"
